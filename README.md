@@ -25,7 +25,7 @@ That's it! No setup, no API keys, no technical knowledge required.
 
 ## 🛠️ For Developers
 
-### Local Development
+### Local Development & Testing
 
 1. Clone the repository:
 ```bash
@@ -38,15 +38,24 @@ cd GLR-Pipeline
 pip install -r requirements.txt
 ```
 
-3. Create a `.streamlit/secrets.toml` file with your Groq API key:
-```toml
-GROQ_API_KEY = "your_groq_api_key_here"
+3. **Option A:** Create a `.env` file with your Groq API key:
+```
+GROQ_API_KEY=your_groq_api_key_here
 ```
 
-4. Run the app:
+   **Option B:** Enter your API key in the app sidebar when prompted
+
+4. Run the local testing version:
+```bash
+streamlit run app_local.py
+```
+
+   Or run the production version (requires API key in secrets):
 ```bash
 streamlit run app.py
 ```
+
+**Note:** `app_local.py` is designed for local testing and will prompt for an API key. `app.py` is the production version deployed on Streamlit Cloud.
 
 ### Deployment to Streamlit Cloud
 
