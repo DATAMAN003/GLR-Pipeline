@@ -1,33 +1,47 @@
 # GLR Pipeline - Insurance Template Automation
 
-Automate insurance template filling using photo reports and AI via Streamlit.
+🚀 **Live App:** https://dataman003.streamlit.app/
 
-## Features
+Automate insurance template filling using photo reports and AI. No API key required - just upload your files and get results!
 
-- Upload insurance templates (.docx format)
-- Upload multiple photo reports (.pdf format)
-- Extract text from PDFs automatically
-- Use AI (Llama 3.3 70B via Groq) to interpret and map data
-- Generate filled-in Word documents
-- Download as DOCX or PDF (with LibreOffice installed)
+## ✨ Features
 
-## Setup
+- 📄 Upload insurance templates (.docx format)
+- 📸 Upload multiple photo reports (.pdf format)
+- 🤖 AI-powered data extraction using Llama 3.3 70B
+- 📝 Automatic template filling with formatting preservation
+- ⬇️ Download completed reports instantly
+- 🔒 No API key needed for users
+
+## 🎯 How to Use
+
+1. **Visit the app:** https://dataman003.streamlit.app/
+2. **Upload your template** - ONE .docx file
+3. **Upload photo reports** - ONE or MORE .pdf files
+4. **Click "Process Documents"**
+5. **Download your completed report**
+
+That's it! No setup, no API keys, no technical knowledge required.
+
+## 🛠️ For Developers
 
 ### Local Development
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/DATAMAN003/GLR-Pipeline.git
+cd GLR-Pipeline
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Create a `.env` file with your Groq API key:
+3. Create a `.streamlit/secrets.toml` file with your Groq API key:
+```toml
+GROQ_API_KEY = "your_groq_api_key_here"
 ```
-GROQ_API_KEY=your_groq_api_key_here
-```
-
-3. (Optional) Install LibreOffice for PDF conversion:
-   - Download from: https://www.libreoffice.org/download/download/
-   - Install and restart your terminal
 
 4. Run the app:
 ```bash
@@ -36,36 +50,37 @@ streamlit run app.py
 
 ### Deployment to Streamlit Cloud
 
-1. Push your code to GitHub
+1. Fork this repository
 2. Connect to Streamlit Cloud
-3. Add your `GROQ_API_KEY` in Secrets (Settings > Secrets):
+3. Add your `GROQ_API_KEY` in app settings (Settings > Secrets):
 ```toml
 GROQ_API_KEY = "your_groq_api_key_here"
 ```
-4. The `packages.txt` file will automatically install LibreOffice for PDF conversion
+4. Deploy! The `packages.txt` file will automatically install LibreOffice
 
-## Usage
+## 🔧 How It Works
 
-1. Upload your insurance template (.docx) - ONE file
-2. Upload one or more photo reports (.pdf) - ONE or MORE files
-3. Click "Process Documents"
-4. Download the completed report as DOCX or PDF
+1. **Template Analysis** - AI learns the structure and formatting of your template
+2. **Text Extraction** - Extracts all text from PDF photo reports
+3. **AI Processing** - Llama 3.3 70B analyzes and maps data intelligently
+4. **Smart Filling** - Populates template while preserving all formatting
+5. **Output Generation** - Creates professional Word documents ready to download
 
-## How It Works
+## 🎨 Technology Stack
 
-1. **Text Extraction**: Extracts text from PDF photo reports using PyPDF2
-2. **Template Analysis**: Reads the Word template structure
-3. **AI Processing**: Sends template and report data to Llama 3.3 70B via Groq
-4. **Data Mapping**: AI identifies key-value pairs and creates mappings
-5. **Template Filling**: Populates the template with extracted data (preserves formatting)
-6. **Output Generation**: Creates downloadable .docx and .pdf files
+- **Frontend:** Streamlit
+- **AI Model:** Llama 3.3 70B (via Groq)
+- **Document Processing:** python-docx, PyPDF2
+- **PDF Conversion:** LibreOffice (server-side)
 
-## API Configuration
+## 📝 License
 
-The app uses Groq's free Llama 3.3 70B model. Get your free API key at [console.groq.com](https://console.groq.com)
+MIT License - feel free to use and modify!
 
-## PDF Conversion
+## 🤝 Contributing
 
-- **With LibreOffice**: Full formatting preservation, works on all platforms
-- **Without LibreOffice**: DOCX download only (users can convert manually)
-- **Streamlit Cloud**: Automatically installs LibreOffice via `packages.txt`
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## 📧 Contact
+
+For questions or support, please open an issue on GitHub.
