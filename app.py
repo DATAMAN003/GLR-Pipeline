@@ -153,33 +153,26 @@ def populate_template_smart(template_path, filled_content):
 st.title("GLR Pipeline - Insurance Template Automation")
 st.markdown("Automate insurance template filling using photo reports and AI")
 
-# Get API key from environment (Streamlit secrets) or user input
-default_api_key = os.getenv("GROQ_API_KEY", "")
+# Get API key from environment (Streamlit secrets)
+api_key = os.getenv("GROQ_API_KEY", "")
 
 # Try to get from Streamlit secrets (for deployed app)
-if not default_api_key:
+if not api_key:
     try:
-        default_api_key = st.secrets.get("GROQ_API_KEY", "")
+        api_key = st.secrets.get("GROQ_API_KEY", "")
     except:
         pass
 
-# Sidebar
+# Sidebar - clean and simple, no API key mention
 with st.sidebar:
-    st.header("Configuration")
-    if default_api_key:
-        api_key = default_api_key
-        st.success("✅ API Key configured")
-        st.caption("Using app's API key")
-    else:
-        st.warning("⚠️ API Key required")
-        api_key = st.text_input("Groq API Key", type="password", help="Get free key from console.groq.com")
+    st.header("📖 Instructions")
+    st.markdown("1. **Upload ONE template** (.docx)")
+    st.markdown("2. **Upload ONE or MORE photo reports** (.pdf)")
+    st.markdown("3. **Click Process Documents**")
+    st.markdown("4. **Download completed report**")
     
     st.markdown("---")
-    st.markdown("### Instructions:")
-    st.markdown("1. Upload ONE template (.docx)")
-    st.markdown("2. Upload ONE or MORE photo reports (.pdf)")
-    st.markdown("3. Click Process Documents")
-    st.markdown("4. Download completed report")
+    st.info("💡 The AI will automatically extract information from your photo reports and fill the template fields.")
 
 # File uploads
 st.markdown("### Upload Files")
