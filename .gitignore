@@ -10,6 +10,7 @@ venv/
 *.log
 .env
 .env.local
+.streamlit/secrets.toml
 
 # Example files (keep in repo for reference)
 !Example*/
