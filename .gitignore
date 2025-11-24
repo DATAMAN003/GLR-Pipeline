@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.docx
+*.pdf
+*.log
+.env
+.env.local
+
+# Example files (keep in repo for reference)
+!Example*/
+Example*/**/*.docx
+Example*/**/*.pdf
